@@ -17,3 +17,8 @@ L’esercizio è suddiviso in varie milestones ed è importante svilupparle nell
 
 - MILESTONE 4 (BONUS)
   Gestire ulteriori parametri nel form per le password, dando la possibilità all’utente di specificare quali set di caratteri possono essere ammessi nella password da generare, tra lettere maiuscole, lettere minuscole, numeri e simboli.
+
+## Risultato
+
+![home](img/home.png)
+![result](img/risultato.png)

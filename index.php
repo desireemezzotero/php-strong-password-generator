@@ -23,34 +23,57 @@ require_once './functions.php';
       <h5 class="text-center">Genera una password</h5>
 
      <section class="border-1 bg-light p-4">
-       <form action="">
+       <form action="" method = "GET" class="form-inline">
 
-        <div>
-          <label for="" class="mr-4">Lunghezza password</label>
-          <input type="number" name="length" max="20" min="4">  
-        </div>
+         <div class="row">
+            <div class="col">
+             <label for="" class="mr-4">Lunghezza password</label>
+            </div>
+            <div class="col">
+             <input type="number" name="length" max="20" min="4" class="w-75">  
+            </div>
+          </div>
 
-       
-        <div>
-          <label for="">Consenti ripetizioni di uno o più caratteri:</label>
-          <input type="radio" name="yes"> si
-          <input type="radio" name="yes"> no
-        </div>
+          <div class="row mt-3">
+            <div class="col">
+             <label for="" class="mr-4">Consenti ripetizione dei caratteri: </label>
+            </div>
+            <div class="col">
+            <input type="radio" name="repeat" value="si" > si
+            <input type="radio" name="repeat" value="no"> no
+            </div>
+          </div>
 
-        <input type="checkbox" name="numeri"> numeri
-        <input type="checkbox" name="lettere"> lettere
-        <input type="checkbox" name="simboli"> simboli
+
+          <div class="row mt-3">
+            <div class="col">
+             <label for="" class="mr-4">Scegli quali caratteri includere</label>
+            </div>
+            <div class="col">
+              <input type="checkbox" name="numeri"> numeri
+              <input type="checkbox" name="lettere"> lettere
+              <input type="checkbox" name="simboli"> simboli
+            </div>
+          </div>
+
+           <div class="text-center mt-3">
+             <button type="submit" class="btn btn-primary" >Invia</button>
+            </div>
        </form>
      </section>
 
    <?php 
    if(isset($_GET['length'])) {
     $length_password = $_GET['length'];
-     $generate_password = random($length_password);
+    $number = $_GET['numeri'];
+    $letter = $_GET['lettere'];
+    $symbol = $_GET['simboli'];
+    $repeat = $_GET['repeat'];
+    $generate_password = random($length_password, $number, $letter, $symbol,  $repeat);
 
-     $_SESSION['password'] = $generate_password;
+    $_SESSION['password'] = $generate_password;
 
-     header("Location: ./result.php");
+    header("Location: ./result.php"); 
    }?>
 
    
