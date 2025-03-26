@@ -18,7 +18,56 @@
     <div class="container mx-auto">
       <h5 class="text-center">Genera una password</h5>
 
-      
+     <section class="border-1 bg-light p-4">
+       <form action="">
+
+        <div>
+          <label for="" class="mr-4">Lunghezza password</label>
+          <input type="number" name="length" max="20" min="4">  
+        </div>
+
+       
+        <div>
+          <label for="">Consenti ripetizioni di uno o più caratteri:</label>
+          <input type="radio" name="yes"> si
+          <input type="radio" name="yes"> no
+        </div>
+
+        <input type="checkbox" name="numeri"> numeri
+        <input type="checkbox" name="lettere"> lettere
+        <input type="checkbox" name="simboli"> simboli
+       </form>
+     </section>
+
+
+    <?php 
+      $length_password = $_GET['length'];
+      $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      $simboli = '!@#$%^&*()-_=+[]{}|;:,.<>?/';
+      $numeri = '0123456789';
+
+
+      function random($length) {
+        global $characters, $simboli, $numeri; 
+
+        $all_characters = $characters . $simboli . $numeri;
+
+        $password = '';
+         for( $i = 1; $i <= $length; $i++){
+          $password .= $all_characters[rand(0, strlen($all_characters) - 1)];
+         }
+
+         echo $password;
+        return $password;
+      }
+
+      if(isset($length_password)) {
+        random($length_password);
+      }
+
+    ?>
+
+   
     </div>
   </main>
   
