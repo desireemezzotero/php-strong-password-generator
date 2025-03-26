@@ -1,3 +1,7 @@
+<?php
+require_once './functions.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,33 +43,11 @@
        </form>
      </section>
 
-
-    <?php 
-      $length_password = $_GET['length'];
-      $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      $simboli = '!@#$%^&*()-_=+[]{}|;:,.<>?/';
-      $numeri = '0123456789';
-
-
-      function random($length) {
-        global $characters, $simboli, $numeri; 
-
-        $all_characters = $characters . $simboli . $numeri;
-
-        $password = '';
-         for( $i = 1; $i <= $length; $i++){
-          $password .= $all_characters[rand(0, strlen($all_characters) - 1)];
-         }
-
-         echo $password;
-        return $password;
-      }
-
-      if(isset($length_password)) {
-        random($length_password);
-      }
-
-    ?>
+   <?php 
+   if(isset($_GET['length'])) {
+    $length_password = $_GET['length'];
+     random($length_password);
+   }?>
 
    
     </div>
