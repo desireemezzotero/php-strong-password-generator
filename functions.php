@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
       $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
       $simboli = '!@#$%^&*()-_=+[]{}|;:,.<>?/';
       $numeri = '0123456789';
@@ -13,7 +15,8 @@
          for( $i = 1; $i <= $length; $i++){
           $password .= $all_characters[rand(0, strlen($all_characters) - 1)];
          }
-        echo $password;
         return $password;
       }
+
+    
     ?>

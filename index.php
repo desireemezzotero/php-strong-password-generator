@@ -46,7 +46,11 @@ require_once './functions.php';
    <?php 
    if(isset($_GET['length'])) {
     $length_password = $_GET['length'];
-     random($length_password);
+     $generate_password = random($length_password);
+
+     $_SESSION['password'] = $generate_password;
+
+     header("Location: ./result.php");
    }?>
 
    
